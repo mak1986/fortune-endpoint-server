@@ -1,0 +1,16 @@
+{
+  "name": "beemodo-endpoints",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mak Jacobsen",
+  "license": "ISC",
+  "dependencies": {
+    "fortune": "^1.12.0",
+    "fortune-json-api": "^1.1.16",
+    "fortune-postgres": "^1.4.0"
+  }
+}
