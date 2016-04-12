@@ -144,9 +144,30 @@ store.defineType('page',{
     sections: { link: 'section', isArray: true, inverse: 'page'}
 });
 
+store.defineType('payment',{
+    first_name: { type: String },
+    last_name: { type: String },
+    cardholder_name: { type: String },
+    billing_address_line_1: { type: String },
+    billing_address_line_2: { type: String },
+    city: { type: String },
+    country: { type: String },
+    postal_code: { type: String },
+    credit_card_number: { type: String },
+    cvc: { type: String },
+    exp_month: { type: String },
+    exp_year: { type: String },
+    email: { type: String },
+    phone_area_code: { type: String },
+    phone_number: { type: String },
+    order: { link: 'order', inverse: 'payment' },
+    site: { link: 'site', inverse: 'payments'}
+});
+
 store.defineType('order', {
 	paid: { type : Boolean },
 	accommodationOrders: { link: 'accommodation__order', isArray: true, inverse: 'order' },
+	payment : {link : 'payment', inverse: 'order' },
 	site : {link : 'site', inverse: 'orders' }
 });
 
@@ -203,7 +224,8 @@ store.defineType('site', {
 	defaultLanguage: {link: 'language', inverse: 'siteDefaultLanguages' },
 	enabledLanguages: {link: 'language', isArray: true, inverse: 'siteEnabledLanguages'},
 	publishedLanguages: {link: 'language', isArray: true, inverse: 'sitePublishedLanguages'},
-	orders: {link: 'order', isArray: true, inverse: 'site'}
+	orders: {link: 'order', isArray: true, inverse: 'site'},
+	payments: {link: 'payment', isArray: true, inverse: 'site'}
 });
 
 store.defineType('user',{
