@@ -47,7 +47,8 @@ store.defineType('accommodation', {
 	facilities: { link: 'accommodation_facility', isArray: true, inverse: 'accommodations' },
 	rooms: { link: 'room',  isArray: true, inverse:'accommodations' },
 	luxuryTitle: { link: 'accommodation_luxury_title',inverse: 'accommodations' },
-	accommodationOrders: {link: 'accommodation__order', isArray: true, inverse: 'accommodation'}
+	accommodationOrders: { link: 'accommodation__order', isArray: true, inverse: 'accommodation'},
+	images: { link: 'image', isArray: true, inverse: 'accommodation' }
 });
 
 store.defineType('accommodation_facility', {
@@ -105,6 +106,12 @@ store.defineType('group',{
     users: { link: 'user', isArray: true, inverse: 'groups' },
     sites: { link: 'site', isArray: true, inverse: 'groups' },
     features: { link: 'feature', isArray: true, inverse: 'groups' }
+});
+
+store.defineType('image',{
+    name: { type: String },
+    primary: { type: Boolean },
+    accommodation: { link: 'accommodation', inverse: 'images' }
 });
 
 store.defineType('language', {
